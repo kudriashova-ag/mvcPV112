@@ -19,9 +19,10 @@ class Db{
         return self::$instance;
     }
 
-    public function query(string $sql){
-        $stmt = $this->connect->query($sql);
-        return $stmt ? $stmt->fetchAll(PDO::FETCH_OBJ) : null;
+    public function query(string $sql, array $params = [], string $className = 'stdClass'){
+        $stmt = $this->connect->prepare($sql);
+        $result = $stmt->execute($params);
+        return $result ? $stmt->fetchAll(PDO::FETCH_CLASS, $className) : null;
     }
 
 }
