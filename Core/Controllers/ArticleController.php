@@ -29,5 +29,12 @@ class ArticleController extends Controller{
         View::render('articles/show', compact('article'));
     }
 
+    function pdf() {
+        
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML('<h1>Hello world!</h1>');
+        $mpdf->Output('file.pdf', 'D');
+    }
+
 
 }

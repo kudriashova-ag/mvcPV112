@@ -5,4 +5,5 @@ $routes = [
     'article/add' => ['ArticleController', 'add'],
     'article/store' => ['ArticleController', 'store'],
     'article/(\d+)' => ['ArticleController', 'show'],
+    'article/pdf' => ['ArticleController', 'pdf'],
 ];
