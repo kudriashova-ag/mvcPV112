@@ -1,8 +1,6 @@
 <?php
 namespace Core\Models;
 
-use Services\Db;
-
 class Article extends Model
 {
     public $id;
@@ -13,5 +11,9 @@ class Article extends Model
     public static function getTable()
     {
         return 'articles';
+    }
+
+    function getCategory() {
+        return Category::find( $this->category_id );
     }
 }

@@ -6,4 +6,9 @@ abstract class Controller{
     {
         echo '<pre>' . print_r($obj, true) . '</pre>';
     }
+
+    public static function redirect($path){
+        header("Location: $path");
+        exit;
+    }
 }
